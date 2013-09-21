@@ -1,0 +1,17 @@
+<h1>Listing venues</h1>
+<%= link_to 'New venue', new_venue_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @venues.each do |venue| %>
+    <tr>
+      <td><%= venue.title %></td>
+      <td><%= venue.text %></td>
+			<td><%= link_to 'Show', venues_path %></td>
+			<td><%= link_to 'Edit', edit_venue_path(venue) %></td>
+    </tr>
+  <% end %>
+</table>
