@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @band.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @band.description %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @band.genre %>
+</p>
+
+<%= link_to 'Back', bands_path %>
+| <%= link_to 'Edit', edit_band_path(@band) %>
