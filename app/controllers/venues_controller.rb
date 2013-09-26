@@ -10,7 +10,7 @@ class VenuesController < ApplicationController
 	def update
 		@venue = Venue.find(params[:id])
 		
-		if @venue.update(params[:venue].permit(:title, :text))
+		if @venue.update(params[:venue].permit(:title, :text, :photo))
 			redirect_to @venue
 		else
 			render 'edit'
@@ -41,7 +41,7 @@ class VenuesController < ApplicationController
 		@venue = Venue.find(params[:id])
 	end
 	private
-		def post_params
-			params.require(:venue).permit(:title, :text)
+		def venue_params
+			params.require(:venue).permit(:title, :text, :photo)
 		end  
 end

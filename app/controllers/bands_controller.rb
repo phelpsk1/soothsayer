@@ -10,7 +10,7 @@ class BandsController < ApplicationController
 	def update
 		@band = Band.find(params[:id])
 		
-		if @band.update(params[:band].permit(:title, :description, :genre))
+		if @band.update(params[:band].permit(:title, :description, :genre, :photo))
 			redirect_to @band
 		else
 			render 'edit'
@@ -29,7 +29,7 @@ class BandsController < ApplicationController
 	end
 
   def create
-		@band = Band.new(params[:band].permit(:title, :description, :genre))
+		@band = Band.new(params[:band].permit(:title, :description, :genre, :photo))
 		if @band.save
 			redirect_to @band
 		else
@@ -42,6 +42,6 @@ class BandsController < ApplicationController
 	end
 	private
 		def post_params
-			params.require(:band).permit(:title, :description, :genre)
+			params.require(:band).permit(:title, :description, :genre, :photo)
 		end  
 end

@@ -2,6 +2,7 @@
 <%= link_to 'New band', new_band_path %>
 <table>
   <tr>
+		<th></th>
     <th>Title</th>
     <th>Description</th>
     <th>Genre</th>
@@ -9,6 +10,7 @@
 
   <% @bands.each do |band| %>
     <tr>
+			<td><%= image_tag band.photo.url(:thumb) %></td>
       <td><%= band.title %></td>
       <td><%= band.description %></td>
 			<td><%= link_to 'Show', band_path(band) %></td>

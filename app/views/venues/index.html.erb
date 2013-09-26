@@ -2,12 +2,14 @@
 <%= link_to 'New venue', new_venue_path %>
 <table>
   <tr>
-    <th>Title</th>
+		<th></th>
+		<th>Title</th>
     <th>Text</th>
   </tr>
 
   <% @venues.each do |venue| %>
     <tr>
+      <td><%= image_tag venue.photo.url(:thumb) %></td>
       <td><%= venue.title %></td>
       <td><%= venue.text %></td>
 			<td><%= link_to 'Show', venue_path(venue) %></td>

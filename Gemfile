@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#paperclip
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 #
 gem 'unicorn', '4.6.0'
 #rails twitter bootstrap plugin

@@ -1,4 +1,4 @@
-<%= form_for @band do |f| %>
+<%= form_for @band, :url => band_path, :html => { :multipart => true } do |f| %>
   <% if @band.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(@band.errors.count, "error") %> prohibited
@@ -25,6 +25,9 @@
     <%= f.text_area :genre %>
   </p>
  
+	<p>
+		<%= f.file_field :photo %>
+
   <p>
     <%= f.submit %>
   </p>
