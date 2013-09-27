@@ -1,0 +1,34 @@
+<%= form_for @song, :url => song_path, :html => { :multipart => true } do |f| %>
+  <% if @song.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@song.errors.count, "error") %> prohibited
+      this song from being saved:</h2>
+    <ul>
+    <% @song.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.collection_select :band, Band.all, :title, :title %>
+  </p>
+  
+	<p>
+    <%= f.label :genre %><br>
+    <%= f.text_area :genre %>
+  </p>
+ 
+	<p>
+		<%= f.file_field :mp3 %>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
