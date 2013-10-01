@@ -1,3 +1,9 @@
 class Song < ActiveRecord::Base
-  has_attached_file :mp3
+  has_attached_file :mp3,
+                    :url => '/:class/:id/:style.:extension',
+                    :path => ':rails_root/assets/:class/:id_partition/:style.:extension'
+
+  validates_attachment_presence :mp3
+  validates_attachment_content_type :mp3, :content_type => [ 'application/mp3', 'application/x-mp3', 'audio/mpeg', 'audio/mp3' ]
+  validates_attachment_size :mp3, :less_than => 20.megabytes
 end

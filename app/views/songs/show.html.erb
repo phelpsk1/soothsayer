@@ -1,5 +1,14 @@
+<p>
 <%= @song.mp3.url %>
-<%= audio_tag @song.mp3.url %>
+</p>
+
+<p>
+<%= @song.mp3_file_name %>
+</p>
+
+<p>
+<%= audio_tag (@song.mp3.url), controls: "controls", alt: "Please use chrome, ie, or safari", preload: :auto  %>
+</p>
 <p>
   <strong>Title:</strong>
   <%= @song.title %>
