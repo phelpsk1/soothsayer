@@ -13,6 +13,11 @@
   <strong>Genre:</strong>
   <%= @band.genre %>
 </p>
-
+<p>
+	<strong>Songs:</strong>
+	<% Song.find_all_by_band(@band.title).each do |song| %>
+		<%= link_to song.title, song_path(song) %>
+	<% end %>
+</p>
 <%= link_to 'Back', bands_path %>
 | <%= link_to 'Edit', edit_band_path(@band) %>

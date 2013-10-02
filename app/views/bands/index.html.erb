@@ -10,8 +10,8 @@
 
   <% @bands.each do |band| %>
     <tr>
-			<td><%= image_tag band.photo.url(:thumb) %></td>
-      <td><%= band.title %></td>
+			<td><%= link_to image_tag(band.photo.url(:thumb)), band_path(band) %></td>
+      <td><%= link_to band.title, band_path(band) %></td>
       <td><%= band.description %></td>
 			<td><%= link_to 'Show', band_path(band) %></td>
 			<td><%= link_to 'Edit', edit_band_path(band) %></td>
