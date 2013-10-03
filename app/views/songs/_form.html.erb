@@ -1,34 +1,50 @@
-<%= form_for @song do |f| %>
-  <% if @song.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@song.errors.count, "error") %> prohibited
-      this song from being saved:</h2>
-    <ul>
-    <% @song.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<%= form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
   </div>
-  <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :band %><br>
-    <%= f.collection_select :band, Band.all, :title, :title %>
-  </p>
-  
-	<p>
-    <%= f.label :genre %><br>
-    <%= f.text_area :genre %>
-  </p>
- 
-	<p>
-		<%= f.file_field :mp3 %>
+  <div class="control-group">
+    <%= f.label :band, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :band, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :genre, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :genre, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mp3_file_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mp3_file_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mp3_content_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mp3_content_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mp3_file_size, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mp3_file_size, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mp3_updated_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mp3_updated_at, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                songs_path, :class => 'btn' %>
+  </div>
 <% end %>

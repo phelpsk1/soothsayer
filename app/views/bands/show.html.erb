@@ -1,23 +1,32 @@
-<%= image_tag @band.photo.url %>
-<p>
-  <strong>Title:</strong>
-  <%= @band.title %>
-</p>
+<%- model_class = Band -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @band.description %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
+  <dd><%= image_tag(@band.photo.url(:medium)) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @band.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @band.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:genre) %>:</strong></dt>
+  <dd><%= @band.genre %></dd>
+  <dt><strong>Songs:</strong></dt>
+  <dd><% Song.find_all_by_band(@band.title).each do |song| %>
+    <%= link_to song.title, song_path(song) %>
+		<% end %>
+	</dd>
+</dl>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @band.genre %>
-</p>
-<p>
-	<strong>Songs:</strong>
-	<% Song.find_all_by_band(@band.title).each do |song| %>
-		<%= link_to song.title, song_path(song) %>
-	<% end %>
-</p>
-<%= link_to 'Back', bands_path %>
-| <%= link_to 'Edit', edit_band_path(@band) %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              bands_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_band_path(@band), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              band_path(@band),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

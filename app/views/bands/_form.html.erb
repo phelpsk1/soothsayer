@@ -1,35 +1,31 @@
-<%= form_for @band do |f| %>
-  <% if @band.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@band.errors.count, "error") %> prohibited
-      this band from being saved:</h2>
-    <ul>
-    <% @band.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<%= form_for @band, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
   </div>
-  <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-  
-<p>
-    <%= f.label :genre %><br>
-    <%= f.text_area :genre %>
-  </p>
- 
-	<p>
-		<%= f.label :photo %><br>
-		<%= f.file_field :photo %>
-
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :genre, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :genre, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :photo, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                bands_path, :class => 'btn' %>
+  </div>
 <% end %>

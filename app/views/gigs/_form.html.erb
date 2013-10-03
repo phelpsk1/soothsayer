@@ -1,39 +1,38 @@
-<%= form_for @gig do |f| %>
-  <% if @gig.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@gig.errors.count, "error") %> prohibited
-      this gig from being saved:</h2>
-    <ul>
-    <% @gig.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+<%= form_for @gig, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
   </div>
-  <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-  
-<p>
-    <%= f.label :venue %><br>
-    <%= f.collection_select( :venue , Venue.all, :title, :title) %>
-  </p>
-<p>
-    <%= f.label :start_time %><br>
-    <%= f.datetime_select :start_time %>
-  </p>
-<p>
-    <%= f.label :bandlist %><br>
-    <%= f.text_area :bandlist %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :start_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :start_time, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bandlist, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :bandlist, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :venue, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select( :venue , Venue.all, :title, :title) %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                gigs_path, :class => 'btn' %>
+  </div>
 <% end %>
