@@ -1,16 +1,15 @@
-<h1>Listing bands</h1>
+<h3>Listing bands</h3>
 <%= link_to 'New band', new_band_path %>
 <br>
 <div class="container">
 <div class="row">
 	<ul class="thumbnails">
 		<% @bands.each do |band| %>
-			<li class="span4">
+			<li class="span3">
 				<div class="thumbnail">
-					<img data-src="holder.js/300x200" alt="">
-<%#= image_tag(band.photo.url(:medium)) %>
-					<h3><%= band.title %></h3>
-					<p><%= band.description %></p>
+					<%= link_to image_tag(band.photo.url(:medium)), band_path(band) %>
+					<h3><%= link_to band.title, band_path(band) %></h3>
+					<p><small><%= band.description %></small></p>
 				</div>
 			</li>
 		<% end %>

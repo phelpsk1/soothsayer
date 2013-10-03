@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 #paperclip
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 #
