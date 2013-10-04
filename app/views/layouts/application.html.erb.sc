@@ -47,11 +47,8 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="/">4play.io</a>
-					<ul class="nav">
-						<li class="active"><a href="/venues">Venues</a></li>
-						<li><a href="/bands">Bands</a></li>
-						<li><a href="/songs">Songs</a></li>
-						<li><a href="/gigs">Gigs</a></li>
+<embed src='http://www.shoutcast.com/media/popupPlayer_V19.swf?stationid=http://yp.shoutcast.com/sbin/tunein-station.pls?id=62125&play_status=1' quality='high' bgcolor='#ffffff' width='398' height='104' name='popupPlayer_V19' align='middle' allowScriptAccess='always' allowFullScreen='true' type='application/x-shockwave-flash' pluginspage='http://www.adobe.com/go/getflashplayer' ></embed>
+						</li>
 					</ul>
 					<p>derp</p>
           <div class="container-fluid nav-collapse">
@@ -85,7 +82,6 @@
 
       <footer>
         <p>&copy; Me 2013</p>
-<embed src='http://www.shoutcast.com/media/popupPlayer_V19.swf?stationid=http://yp.shoutcast.com/sbin/tunein-station.pls?id=62125&play_status=1' quality='high' bgcolor='#ffffff' width='398' height='104' name='popupPlayer_V19' align='middle' allowScriptAccess='always' allowFullScreen='true' type='application/x-shockwave-flash' pluginspage='http://www.adobe.com/go/getflashplayer' ></embed>
       </footer>
 
     </div> <!-- /container -->
