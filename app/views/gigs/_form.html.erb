@@ -1,38 +1,8 @@
-<%= form_for @gig, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :start_time, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.datetime_select :start_time, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bandlist, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :bandlist, :class => 'text_area' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :venue, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select( :venue , Venue.all, :title, :title) %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                gigs_path, :class => 'btn' %>
-  </div>
+<%= simple_form_for(@gig, :html => { :class => 'form-horizontal' }) do |f| %>
+	<%=	f.input :title %>
+	<%=	f.input :description %>
+	<%=	f.input :start_time %>
+	<%=	f.association :venue %>
+	<%=	f.association :bands %>
+	<%= f.button :submit %>
 <% end %>

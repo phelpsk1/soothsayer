@@ -10,10 +10,10 @@
   <dd><%= @gig.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
   <dd><%= @gig.start_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:bandlist) %>:</strong></dt>
-  <dd><%= @gig.bandlist %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bands) %>:</strong></dt>
+  <dd><%= @gig.bands.map{ |b| b.title}.join(", ").html_safe %></dd>
   <dt><strong><%= model_class.human_attribute_name(:venue) %>:</strong></dt>
-  <dd><%= @gig.venue %></dd>
+  <dd><%= @gig.venue.title %></dd>
 </dl>
 
 <div class="form-actions">

@@ -10,7 +10,7 @@ class GigsController < ApplicationController
 	def update
 		@gig = Gig.find(params[:id])
 		
-		if @gig.update(params[:gig].permit(:title, :description, :venue, :start_time, :bandlist))
+		if @gig.update(params[:gig].permit(:title, :description, :start_time, :venue_id, :band_ids => []))
 			redirect_to @gig
 		else
 			render 'edit'
@@ -29,7 +29,7 @@ class GigsController < ApplicationController
 	end
 
   def create
-		@gig = Gig.new(params[:gig].permit(:title, :description, :venue, :start_time, :bandlist))
+		@gig = Gig.new(params[:gig].permit(:title, :description, :start_time, :venue_id, :band_ids => []))
 		if @gig.save
 			redirect_to @gig
 		else
@@ -38,10 +38,11 @@ class GigsController < ApplicationController
 	end
 
 	def show
+#		@gig = Gig.find(params[:id])
 		@gig = Gig.find(params[:id])
 	end
 	private
 		def post_params
-			params.require(:gig).permit(:title, :description, :venue, :start_time, :bandlist)
+			params.require(:gig).permit(:title, :description, :start_time, :venue_id, :band_ids)
 		end  
 end

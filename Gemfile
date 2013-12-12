@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'simple_form'
+gem 'masonry-rails'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 #paperclip
