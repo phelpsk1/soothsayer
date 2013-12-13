@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rails-gallery'
 gem 'simple_form'
 gem 'masonry-rails'
 gem 'less-rails'

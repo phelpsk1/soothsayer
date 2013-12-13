@@ -1,10 +1,10 @@
-<% @gigs.each do |gig| %>
 	<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+<% @gigs.each do |gig| %>
 
   <div class="box col3">
 
   <div class="item w3">
-    <h3><%= gig.title %></h3>
+    <h3><%= link_to(gig.title, gig_path(gig)) %></h3>
   </div>
 
   <div class="item w1">
@@ -12,11 +12,12 @@
       <a href="https://scontent-a-ord.xx.fbcdn.net/hphotos-prn1/1234901_10151780690694526_847752889_n.jpg" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="https://scontent-a-ord.xx.fbcdn.net/hphotos-prn1/1234901_10151780690694526_847752889_n.jpg" alt="Whitlow's on Wilson" /></a>
     </p>
   </div>
-  <%= gig.description %>
-	<%= gig.bands.map{|g| g.title}.join(",") %>
+	<p>Location:</p><h4><%= link_to(gig.venue.title,venue_path(gig.venue)) %></h4>
+  <p><%= gig.description %></p>
+	<h4>Band List: <%= gig.bands.map{|g| g.title}.join(", ") %></h4>
 </div>
 <% end %>
-
+</div>
 
 
 
