@@ -1,0 +1,12 @@
+.bandname {
+	background: #000;
+	width: 120px;
+}
+.songlist {
+	background: #111;
+	padding: 0px;
+	line-height: 90%;
+}
+.brow {
+	background: #456;
+}

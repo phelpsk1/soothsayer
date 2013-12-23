@@ -1,9 +1,9 @@
 	<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 <% @gigs.each do |gig| %>
 
-  <div class="box col3">
+  <div class="box col5 brow">
 
-  <div class="item w3">
+  <div class="item">
     <h3><%= link_to(gig.title, gig_path(gig)) %></h3>
   </div>
 
@@ -14,13 +14,27 @@
   </div>
 	<p>Location:</p><h4><%= link_to(gig.venue.title,venue_path(gig.venue)) %></h4>
   <p><%= gig.description %></p>
-	<h4>Band List: <%= gig.bands.map{|g| g.title}.join(", ") %></h4>
+	<h4>Band List:</h4>
+	<% gig.bands.each do |b| %>
+		<div class="item w5 brow">
+			<div class="box col1 bandname">
+				<%= link_to(b.title,band_path(b)) %>
+			</div>
+			<div class="box col2">
+				<p><%= b.description %></p>
+			</div>
+			<div class="box col1 songlist">
+				<p> Check out their songs!</p>
+				<% b.songs.find(:all, limit: 3).each do |s| %>
+					<p><%= link_to(s.title, song_path(s)) %></p>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+
 </div>
 <% end %>
 </div>
-
-
-
 
 <%- model_class = Gig -%>
 <div class="page-header">

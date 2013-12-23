@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212083529) do
+ActiveRecord::Schema.define(version: 20131222080940) do
 
   create_table "bands", force: true do |t|
     t.string   "title"
@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 20131212083529) do
   create_table "bands_gigs", id: false, force: true do |t|
     t.integer "band_id"
     t.integer "gig_id"
-  end
-
-  create_table "events", force: true do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "gigs", force: true do |t|
@@ -55,6 +47,7 @@ ActiveRecord::Schema.define(version: 20131212083529) do
     t.string   "mp3_content_type"
     t.integer  "mp3_file_size"
     t.datetime "mp3_updated_at"
+    t.integer  "band_id"
   end
 
   create_table "venues", force: true do |t|

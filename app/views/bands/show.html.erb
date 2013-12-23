@@ -13,8 +13,8 @@
   <dt><strong><%= model_class.human_attribute_name(:genre) %>:</strong></dt>
   <dd><%= @band.genre %></dd>
   <dt><strong>Songs:</strong></dt>
-  <dd><% Song.find_all_by_band(@band.title).each do |song| %>
-    <%= link_to song.title, song_path(song) %>
+  <dd><% Song.find_all_by_band_id(@band.id).each do |song| %>
+    <%= link_to( song.title, song_path(song)) %>
 		<% end %>
 	</dd>
 </dl>

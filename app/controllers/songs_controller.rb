@@ -10,7 +10,7 @@ class SongsController < ApplicationController
 	def update
 		@song = Song.find(params[:id])
 		
-		if @song.update(params[:song].permit(:title, :band, :genre, :mp3))
+		if @song.update(params[:song].permit(:title, :band_title, :genre, :mp3, :band_id))
 			redirect_to @song
 		else
 			render 'edit'
@@ -29,7 +29,7 @@ class SongsController < ApplicationController
 	end
 
   def create
-		@song = Song.new(params[:song].permit(:title, :band, :genre, :mp3))
+		@song = Song.new(params[:song].permit(:title, :band_title, :genre, :mp3, :band_id))
 		if @song.save
 			redirect_to @song
 		else
@@ -42,6 +42,6 @@ class SongsController < ApplicationController
 	end
 	private
 		def post_params
-			params.require(:song).permit(:title, :band, :genre, :mp3)
+			params.require(:song).permit(:title, :band_title, :genre, :mp3, :band_id)
 		end  
 end

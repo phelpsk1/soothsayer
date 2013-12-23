@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @song.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:band) %>:</strong></dt>
-  <dd><%= @song.band %></dd>
+  <dd><%= @song.band.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:genre) %>:</strong></dt>
   <dd><%= @song.genre %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mp3_file_name) %>:</strong></dt>
