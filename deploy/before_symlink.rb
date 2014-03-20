@@ -1,3 +1,3 @@
-if false
+if true
 	raise "OH CRAP"
 end
